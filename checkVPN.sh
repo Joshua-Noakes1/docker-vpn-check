@@ -28,7 +28,9 @@ then # XTeVe down
             echo $(tput setaf 1)[Fail] Check Failed
             echo [Fail] Assuming VPN stack is down, trying reset 
             tput sgr0 # reset console color
-
+            docker-compose down
+            sleep 2
+            docker-compose up -d
         else # Prowlar is up, XTeVe is down
             echo $(tput setaf 2)[Success] VPN stack isn\'t down
             tput sgr0 # reset console color
